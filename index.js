@@ -163,6 +163,6 @@ moveSkeleton = (argument) => {
     }
 }
 
-// TODO: Find out why dagger gets removed on DOM load even though no click event occurs
+//TODO: Find out why dagger gets removed on DOM load even though no click event occurs
 // const daggerElement = document.getElementById("dagger");
 // daggerElement.addEventListener("click", deleteElement('#dagger'));
