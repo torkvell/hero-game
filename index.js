@@ -129,17 +129,21 @@ createSkeleton = () => {
     //update level text on page
     const levelHeading = document.querySelector("#level");
     levelHeading.innerHTML = "Level " + level;
+
+    //reset health
+    skeleton.health = 10;
+
     //create element
-    const skeleton = document.createElement("img");
+    const skeletonImg = document.createElement("img");
     const skeletonArea = document.querySelector("#skeletonArea");
 
     //adjust element styling, src attr
-    skeleton.setAttribute("src", "./img/skeleton.png");
-    skeleton.setAttribute("id", `skeleton${level}`);
-    skeleton.setAttribute("onclick", `attack('#skeleton${level}');`);
+    skeletonImg.setAttribute("src", "./img/skeleton.png");
+    skeletonImg.setAttribute("id", `skeleton${level}`);
+    skeletonImg.setAttribute("onclick", `attack('#skeleton${level}');`);
 
     //insert into DOM
-    skeletonArea.appendChild(skeleton);
+    skeletonArea.appendChild(skeletonImg);
 }
 
 moveSkeleton = (argument) => {
