@@ -1,4 +1,5 @@
-// Write your JS here
+let level = 1;
+
 const hero = {
     name: "",
     heroic: true,
@@ -10,6 +11,14 @@ const hero = {
     },
     changeName: function(newName) {
         this.name = newName;
+    }
+}
+
+const skeleton = {
+    health: 10,
+    weapon: {
+        type: "Bone",
+        damage: 1
     }
 }
 
@@ -42,23 +51,8 @@ equipWeapon = (person) => {
     }
 }
 
-// // change name hero
-// changeNameHero = () => {
-//     //create elements needed to change name
-//     const nameDiv = document.getElementById("heroName");
-//     const newName = document.getElementById("newHeroNameInput").value;
-//     const changeNameHero = document.getElementById("changeNameHeroButton");
-//     //add new name to hero
-//     changeNameHero.addEventListener("click", hero.changeName(newName));
-//     //remove text from input field
-//     document.getElementById("newHeroNameInput").value = "";
-//     //present new name
-//     nameDiv.innerText = hero.name;
-//     displayStats();
-// }
-
 displayStats = () => {
-    //clear html content before new is appended
+    //clear html content in stats section before new content is appended
     const heroStatsElement = document.getElementById("heroStats");
     heroStatsElement.innerHTML = "";
 
@@ -107,13 +101,68 @@ window.addEventListener('DOMContentLoaded', (event) => {
     hero.name = name;
     nameDiv.innerText = hero.name;
     displayStats();
+    moveSkeleton();
 });
 
-displayStats();
+//attack function to reduce life of object
+attack = (identifier) => {
+    if (identifier.indexOf("skeleton") !== -1) {
+        skeleton.health = skeleton.health - hero.weapon.damage;
+    }
+    if (skeleton.health <= 0) {
+        // remove enemy skeleton from DOM once killed
+        deleteElement(`#skeleton${level}`);
+        //increase level difficulty
+        level++;
+        if (level <= 10) {
+            //create new skeleton
+            createSkeleton();
+            //start to move skeleton
+            moveSkeleton();
+        } else {
+            alert("Congratulations. You made it!")
+        }
+    }
+}
 
-// delete dagger once clicked TODO: Find out why dagger gets removed on DOM load even though no click event occurs
+createSkeleton = () => {
+    //update level text on page
+    const levelHeading = document.querySelector("#level");
+    levelHeading.innerHTML = "Level " + level;
+    //create element
+    const skeleton = document.createElement("img");
+    const skeletonArea = document.querySelector("#skeletonArea");
+
+    //adjust element styling, src attr
+    skeleton.setAttribute("src", "./img/skeleton.png");
+    skeleton.setAttribute("id", `skeleton${level}`);
+    skeleton.setAttribute("onclick", `attack('#skeleton${level}');`);
+
+    //insert into DOM
+    skeletonArea.appendChild(skeleton);
+}
+
+moveSkeleton = (argument) => {
+    const currentLevel = level;
+    let pos = 600;
+    const skeleton = document.getElementById(`skeleton${level}`);
+    let difficulty = 10 - level;
+    let interval = setInterval(move, difficulty);
+
+    function move() {
+        if (pos == 20) {
+            clearInterval(interval);
+            //if skeleton for specific level (thread) still exist then game over!
+            if (document.getElementById(`skeleton${currentLevel}`)) {
+                alert("GAME OVER!");
+            }
+        } else {
+            pos--;
+            skeleton.style.top = pos + 'px';
+        }
+    }
+}
+
+// TODO: Find out why dagger gets removed on DOM load even though no click event occurs
 // const daggerElement = document.getElementById("dagger");
 // daggerElement.addEventListener("click", deleteElement('#dagger'));
-
-// delete enemy skeletons once clicked
-//

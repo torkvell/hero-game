@@ -22,11 +22,12 @@
             <img class="picture" id="dagger" onclick="pickUpItem(hero, dagger);deleteElement('#dagger');" src="./img/dagger.png"></img>
             <img class="picture" id="bag" onclick="equipWeapon(hero);" src="./img/bag.png"></img>
         </div>
+        <p>Kill the skeletons before they reach your hero!</p>
+        <h1 id="level">Level 1</h1>
     </div>
-
-    <!-- 👍 YOUR HTML HERE 👍 -->
-
-
+    <div id="skeletonArea">
+        <img onclick="attack('skeleton');" src="./img/skeleton.png" id="skeleton1"></img>
+    </div>
 
     <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
     <!-- <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button> -->
@@ -43,7 +44,6 @@
     </script>
     <script src="index.js"></script>
     <script src="lib/game_logic.test.js"></script>
-
 </body>
 
 </html>

@@ -9,11 +9,14 @@
     width: 100px;
     height: 150px;
     padding: 10px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    position: absolute;
+    right: 250px;
+    top: 5px;
 }
 
 #heroName {
-    border: 1px solid black;
+    max-width: 50%;
 }
 
 #heroStats {
@@ -24,7 +27,7 @@
 
 #heroWrapper {
     border: 1px solid black;
-    max-width: 400px;
+    max-width: 50%;
 }
 
 #heroWrapper h1 {
@@ -55,4 +58,31 @@
 
 #imgHero {
     display: inline-block;
+}
+
+#skeleton1,
+#skeleton2,
+#skeleton3,
+#skeleton4,
+#skeleton5,
+#skeleton6,
+#skeleton7,
+#skeleton8,
+#skeleton9,
+#skeleton10 {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 600px;
+    right: 230px;
+}
+
+#freespace {
+    min-height: 300px;
+}
+
+#level {
+    position: absolute;
+    right: 250px;
+    top: 300px;
 }
