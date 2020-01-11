@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Mocha Tests</title>
+    <link href="lib/mocha.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="heroWrapper">
+        <h1 id="heroName"></h1>
+        <!-- <div id="nameChangeWrapper">
+            <label for="hero">Name: </label>
+            <input type="text" name="hero" id="newHeroNameInput"></input>
+            <button id="changeNameHeroButton" onclick="changeNameHero();">Change hero name</button>
+        </div> -->
+        <img id="hero" src="./img/hero.png"></img>
+        <div id="heroStats"></div>
+        <div id="imgHero">
+            <img class="picture" id="inn" onclick="rest(hero);" src="./img/bed.png"></img>
+            <img class="picture" id="dagger" onclick="pickUpItem(hero, dagger);deleteElement('#dagger');" src="./img/dagger.png"></img>
+            <img class="picture" id="bag" onclick="equipWeapon(hero);" src="./img/bag.png"></img>
+        </div>
+    </div>
+
+    <!-- 👍 YOUR HTML HERE 👍 -->
+
+
+
+    <!-- I RECOMMEND YOU LEAVE THE REST UNTOUCHED -->
+    <!-- <button onclick="mocha.checkLeaks(); mocha.run();">Run the tests!</button> -->
+
+    <!-- <div id="mocha"> -->
+    <!-- MOCHA TEST FEEDBACK WILL BE RENDERED HERE -->
+    <!-- </div> -->
+
+    <script src="lib/chai.js"></script>
+    <script src="lib/mocha.js"></script>
+    <script src="lib/sinon.js"></script>
+    <script>
+        mocha.setup('bdd')
+    </script>
+    <script src="index.js"></script>
+    <script src="lib/game_logic.test.js"></script>
+
+</body>
+
+</html>

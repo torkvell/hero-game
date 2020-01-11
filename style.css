@@ -1,0 +1,58 @@
+.picture {
+    width: 55px;
+    height: 55px;
+    border: 1px solid black;
+    display: block;
+}
+
+#hero {
+    width: 100px;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+#heroName {
+    border: 1px solid black;
+}
+
+#heroStats {
+    border: 1px solid black;
+    display: inline-block;
+    height: 170px;
+}
+
+#heroWrapper {
+    border: 1px solid black;
+    max-width: 400px;
+}
+
+#heroWrapper h1 {
+    text-align: center;
+}
+
+#newHeroNameInput {
+    height: 25px;
+    max-width: 120px;
+}
+
+#changeNameHeroButton {
+    height: 25px;
+    color: #ffffff;
+    background-color: black;
+    max-width: 120px;
+}
+
+#nameChangeWrapper {
+    display: block;
+    border: 1px solid black;
+    max-width: 120px;
+}
+
+#nameChangeWrapper label {
+    display: block;
+}
+
+#imgHero {
+    display: inline-block;
+}
